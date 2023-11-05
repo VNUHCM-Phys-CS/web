@@ -94,6 +94,11 @@
         "trans": "Đơn vị",
         "key": "department"
     },
+    "department_title": {
+        "default": "Bộ môn",
+        "trans": "Bộ môn",
+        "key": "department_title"
+    },
     "detail": {
         "default": "Chi tiết",
         "trans": "Chi tiết",
@@ -203,5 +208,10 @@
         "default": "Video",
         "trans": "Video",
         "key": "video"
+    },
+    "copyright": {
+        "default": "Bản quyền © 2023 Khoa Vật Lý - Vật Lý Kỹ Thuật.",
+        "trans": "Bản quyền © 2023 Khoa Vật Lý - Vật Lý Kỹ Thuật.",
+        "key": "copyright"
     }
 }

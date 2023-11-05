@@ -49,7 +49,7 @@ if($menuLocation = MenuLocation::findFirst(["status =  1 AND deptid = $dept->id 
             <div class="subfooter-inner">
                 <div class="row">
                     <div class="col-12">
-                        <p class="text-center">Bản quyền © 2020 Khoa Vật Lý - Vật Lý Kỹ Thuật.</p>
+                        <p class="text-center">{{ml._ml('copyright', 'Bản quyền © 2023 Khoa Vật Lý - Vật Lý Kỹ Thuật.')}}</p>
                     </div>
                 </div>
             </div>

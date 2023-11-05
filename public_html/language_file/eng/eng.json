@@ -36,27 +36,27 @@
     },
     "vice_dean": {
         "default": "Phó trưởng khoa",
-        "trans": "Vice_dean",
+        "trans": "Vice dean",
         "key": "vice_dean"
     },
     "main_staff": {
         "default": "BAN CHỦ NHIỆM",
-        "trans": "Main_staff",
+        "trans": "Main staff",
         "key": "main_staff"
     },
     "subject": {
         "default": "Bộ môn",
-        "trans": "Department",
+        "trans": "",
         "key": "subject"
     },
     "dean_dept": {
         "default": "Trưởng bộ môn",
-        "trans": "Dean_dept",
+        "trans": "Dean dept",
         "key": "dean_dept"
     },
     "vice_dean_dept": {
         "default": "Phó bộ môn",
-        "trans": "Vice_dean_dept",
+        "trans": "Vice dean dept",
         "key": "vice_dean_dept"
     },
     "department": {
@@ -64,129 +64,145 @@
         "trans": "Unit",
         "key": "department"
     },
+    "department_title": {
+        "default": "Bộ môn",
+        "trans": "Department",
+        "key": "department_title"
+    },
     "managing_lecturer": {
         "default": "Giáo vụ",
-        "trans": "Giáo vụ",
+        "trans": "Academic affairs",
         "key": "managing_lecturer"
     },
     "lecturer": {
         "default": "Giảng viên",
-        "trans": "Giảng viên",
+        "trans": "Lecturer",
         "key": "lecturer"
     },
     "employ_staff": {
         "default": "Cán bộ thỉnh giảng",
-        "trans": "Cán bộ thỉnh giảng",
+        "trans": "Employ Staff",
         "key": "employ_staff"
     },
     "staff": {
         "default": "Nhân viên",
-        "trans": "Nhân viên",
+        "trans": "Staff",
         "key": "staff"
     },
     "visiting_lecturer": {
         "default": "Cán bộ thỉnh giảng",
-        "trans": "Cán bộ thỉnh giảng",
+        "trans": "Vissiting Lecturer",
         "key": "visiting_lecturer"
     },
     "about": {
         "default": "Giới thiệu",
-        "trans": "Giới thiệu",
+        "trans": "About",
         "key": "about"
     },
     "detail": {
         "default": "Chi tiết",
-        "trans": "Chi tiết",
+        "trans": "Detail",
         "key": "detail"
     },
     "friday": {
         "default": "Thứ Sáu",
-        "trans": "Thứ Sáu",
+        "trans": "Friday",
         "key": "friday"
     },
     "day": {
         "default": "ngày",
-        "trans": "ngày",
+        "trans": "date",
         "key": "day"
     },
     "thursday": {
         "default": "Thứ Năm",
-        "trans": "Thứ Năm",
+        "trans": "Thursday",
         "key": "thursday"
     },
     "wednesday": {
         "default": "Thứ Tư",
-        "trans": "Thứ Tư",
+        "trans": "Wednesday",
         "key": "wednesday"
     },
     "tuesday": {
         "default": "Thứ Ba",
-        "trans": "Thứ Ba",
+        "trans": "Tuesday",
         "key": "tuesday"
     },
     "monday": {
         "default": "Thứ Hai",
-        "trans": "Thứ Hai",
+        "trans": "Monday",
         "key": "monday"
     },
     "sunday": {
         "default": "Chủ Nhật",
-        "trans": "Chủ Nhật",
+        "trans": "Sunday",
         "key": "sunday"
     },
     "home": {
         "default": "Trang chủ",
-        "trans": "Trang chủ",
+        "trans": "Home",
         "key": "home"
     },
     "saturday": {
         "default": "Thứ Bảy",
-        "trans": "Thứ Bảy",
+        "trans": "Saturday",
         "key": "saturday"
     },
     "general-introduction": {
         "default": "Giới thiệu chung",
-        "trans": "Giới thiệu chung",
+        "trans": "General Introduction",
         "key": "general-introduction"
     },
     "graduation-standard": {
         "default": "Chuẩn đầu ra",
-        "trans": "Chuẩn đầu ra",
+        "trans": "Graduation standard",
         "key": "graduation-standard"
     },
     "curriculum": {
         "default": "Khung chương trình đào tạo",
-        "trans": "Khung chương trình đào tạo",
+        "trans": "Curriculum",
         "key": "curriculum"
     },
     "career-prospects": {
         "default": "Triển vọng nghề nghiệp",
-        "trans": "Triển vọng nghề nghiệp",
+        "trans": "Career prospects",
         "key": "career-prospects"
     },
     "tuition-fees-scholarships-and-environment": {
         "default": "Học phí, học bổng và môi trường học",
-        "trans": "Học phí, học bổng và môi trường học",
+        "trans": "Tuition fee, scholarship, and environment",
         "key": "tuition-fees-scholarships-and-environment"
     },
     "applied-research": {
         "default": "Nghiên cứu ứng dụng",
-        "trans": "Nghiên cứu ứng dụng",
+        "trans": "Applied research",
         "key": "applied-research"
     },
     "student-activities": {
         "default": "Hoạt động sinh viên",
-        "trans": "Hoạt động sinh viên",
+        "trans": "Student activities",
         "key": "student-activities"
     },
     "typical-students-and-alumni": {
         "default": "Sinh viên và cựu sinh viên tiêu biểu",
-        "trans": "Sinh viên và cựu sinh viên tiêu biểu",
+        "trans": "Typical students, and alumni",
         "key": "typical-students-and-alumni"
     },
     "reviews-of-the-employer": {
         "default": "Đánh giá của nhà tuyển dụng",
-        "trans": "Đánh giá của nhà tuyển dụng",
+        "trans": "Reviews of the employer",
         "key": "reviews-of-the-employer"
+    },
+    "video": {
+        "default": "Video",
+        "trans": "Video",
+        "key": "video"
+    },
+    "copyright": {
+        "default": "Bản quyền © 2023 Khoa Vật Lý - Vật Lý Kỹ Thuật.",
+        "trans": "Copyright © 2023 Physics & Engineering Physics Faculty.",
+        "key": "copyright"
     }
+    
 }

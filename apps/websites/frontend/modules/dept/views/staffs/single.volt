@@ -21,9 +21,9 @@
                                 </div>
                             </div>
                         </div>
-                        <h3 class="title">{{ ml._ml('department', 'Bộ môn') }}</h3>
+                        <h3 class="title">{{ ml._ml('department_title', 'Bộ môn') }}</h3>
                         <?php $depts = \Depts::findFirstId($items->deptid); ?>
-                        <a href="<?= WEB_URL ?><?= $depts->id != 1 ? "/{$depts->slug}" : "" ?>" class="text-info"><?= \Depts::getTitleById($items->deptid) ?></a>
+                        <a href="<?= WEB_URL ?><?= $depts->id != 1 ? "/{$depts->slug}" : "" ?>" class="text-info"><?= \Depts::getTitleById($items->deptid,$langid) ?></a>
 
                         <h3 class="title mt-3">{{ ml._ml('contact', 'Liên hệ') }}</h3>
                         <ul class="list-icons">
