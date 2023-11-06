@@ -7,6 +7,8 @@ class IndexController extends \BackendController
     {
         $title = "Bảng điều khiển";
         $deptid = $this->session->get('deptid');
+        $langId = $this->session->get('langid');
+        $langId = $langId ? $langId : 1;
         if($deptid !== 1){
             $countStaff = \Staffs::count(["deptid = {$deptid} AND status = 1 AND deleted = 0"]);
             $countPartner = \Partners::count(["deptid = {$deptid} AND status = 1 AND deleted = 0"]);
@@ -35,7 +37,7 @@ class IndexController extends \BackendController
         ))
         ->from(['p' => 'Posts'])
         ->where("p.deleted = 0 AND p.deptid = {$deptid}")
-        ->leftJoin('PostsLang', 'pl.postid = p.id AND pl.langid = 1','pl')
+        ->leftJoin('PostsLang', 'pl.postid = p.id AND pl.langid = '.$langId,'pl')
         ->orderBy('p.calendar DESC')
         ->limit(5)
         ->getQuery()

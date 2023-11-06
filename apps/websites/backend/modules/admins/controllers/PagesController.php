@@ -60,6 +60,8 @@ class PagesController  extends \AdminsLangCore {
         if (!$this->request->isAjax() || !$perL = $this->master::checkPermissionDepted($this->cler, 'index')) {
             $this->helper->responseJson($this, ["error" => "Truy cập không được phép"]);
         }
+        $langId = $this->session->get('langid');
+        $langId = $langId ? $langId : 1;
         $columns = [
             'p.id',
             'p.slug',
@@ -74,9 +76,8 @@ class PagesController  extends \AdminsLangCore {
             'pl.excerpt',
             'u.fullname createdby',
             'd.slug dslug',
-            '(SELECT dl.title FROM DeptsLang AS dl WHERE dl.deptid = p.deptid AND dl.langid = 1) AS deptname',
+            '(SELECT dl.title FROM DeptsLang AS dl WHERE dl.deptid = p.deptid AND dl.langid = '.$langId.') AS deptname',
         ];
-
         $data = $this->modelsManager->createBuilder()
         ->columns($columns)
         ->from(['p' => "Pages"])

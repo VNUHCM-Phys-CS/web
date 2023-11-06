@@ -70,6 +70,8 @@ class StaffsController  extends \AdminsLangCore {
         if (!$this->request->isAjax() || !$perL = $this->master::checkPermissionDepted($this->cler, 'index')) {
             $this->helper->responseJson($this, ["error" => "Truy cập không được phép"]);
         }
+        $langId = $this->session->get('langid');
+        $langId = $langId ? $langId : 1;
         $columns = [
             's.id',
             's.slug',
@@ -84,14 +86,13 @@ class StaffsController  extends \AdminsLangCore {
             'sl.title',
             'sl.content',
             'd.slug dslug',
-            '(SELECT dl.title FROM DeptsLang AS dl WHERE dl.deptid = s.deptid AND dl.langid = 1) AS deptname',
+            '(SELECT dl.title FROM DeptsLang AS dl WHERE dl.deptid = s.deptid AND dl.langid = '.$langId.') AS deptname',
         ];
-
         $data = $this->modelsManager->createBuilder()
         ->columns($columns)
         ->from(['s' => "Staffs"])
         ->where("s.deleted = 0")
-        ->leftJoin('StaffsLang', 'sl.staffid = s.id AND sl.langid = 1','sl')
+        ->leftJoin('StaffsLang', 'sl.staffid = s.id AND sl.langid = '.$langId,'sl')
         ->leftJoin('Depts', 'd.id = s.deptid','d');
         if($this->session->get('deptid') == 1){
             $data = $data->orderBy('(s.regency = 0),s.regency ASC,(s.deptposition = 0),s.deptposition ASC,s.sort ASC,s.deptid ASC');

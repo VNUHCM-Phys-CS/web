@@ -60,6 +60,8 @@ class ResearchesController  extends \AdminsLangCore {
         if (!$this->request->isAjax() || !$perL = $this->master::checkPermissionDepted($this->cler, 'index')) {
             $this->helper->responseJson($this, ["error" => "Truy cập không được phép"]);
         }
+        $langId = $this->session->get('langid');
+        $langId = $langId ? $langId : 1;
         $columns = [
             'r.id',
             'r.slug',
@@ -72,14 +74,14 @@ class ResearchesController  extends \AdminsLangCore {
             'rl.content',
             'rl.excerpt',
             'd.slug dslug',
-            '(SELECT dl.title FROM DeptsLang AS dl WHERE dl.deptid = r.deptid AND dl.langid = 1) AS deptname'
+            '(SELECT dl.title FROM DeptsLang AS dl WHERE dl.deptid = r.deptid AND dl.langid = '.$langId.') AS deptname'
         ];
 
         $data = $this->modelsManager->createBuilder()
         ->columns($columns)
         ->from(['r' => "Researches"])
         ->where("r.deleted = 0")
-        ->leftJoin('ResearchesLang', 'rl.researchid = r.id AND rl.langid = 1','rl')
+        ->leftJoin('ResearchesLang', 'rl.researchid = r.id AND rl.langid = '.$langId,'rl')
         ->leftJoin('Depts', 'd.id = r.deptid','d')
         ->orderBy('r.deptid ASC,r.id DESC');
 

@@ -52,6 +52,8 @@ class LinksController  extends \AdminsLangCore {
         if (!$this->request->isAjax() || !$perL = $this->master::checkPermissionDepted($this->cler, 'index')) {
             $this->helper->responseJson($this, ["error" => "Truy cập không được phép"]);
         }
+        $langId = $this->session->get('langid');
+        $langId = $langId ? $langId : 1;
         $columns = [
             'r.id',
             'r.icon',
@@ -61,14 +63,13 @@ class LinksController  extends \AdminsLangCore {
             'r.status',
             'r.createdat',
             'rl.title',
-            '(SELECT dl.title FROM DeptsLang AS dl WHERE dl.deptid = r.deptid AND dl.langid = 1) AS deptname'
+            '(SELECT dl.title FROM DeptsLang AS dl WHERE dl.deptid = r.deptid AND dl.langid = '.$langId.') AS deptname'
         ];
-
         $data = $this->modelsManager->createBuilder()
         ->columns($columns)
         ->from(['r' => "Links"])
         ->where("r.deleted = 0")
-        ->leftJoin('LinksLang', 'rl.linkid = r.id AND rl.langid = 1','rl')
+        ->leftJoin('LinksLang', 'rl.linkid = r.id AND rl.langid = '.$langId,'rl')
         ->orderBy('r.sort ASC,rl.title ASC');
 
         $data = $this->master::builderPermission($data,$perL,'r');

@@ -76,12 +76,13 @@ class SubjectsController  extends \AdminsLangCore {
             'd.slug dslug',
             '(SELECT dl.title FROM DeptsLang AS dl WHERE dl.deptid = s.deptid AND dl.langid = 1) AS deptname',
         ];
-
+        $langId = $this->session->get('langid');
+        $langId = $langId ? $langId : 1;
         $data = $this->modelsManager->createBuilder()
         ->columns($columns)
         ->from(['s' => "Subjects"])
         ->where("s.deleted = 0")
-        ->leftJoin('SubjectsLang', 'sl.subjectid = s.id AND sl.langid = 1','sl')
+        ->leftJoin('SubjectsLang', 'sl.subjectid = s.id AND sl.langid = '.$langId,'sl')
         ->leftJoin('Depts', 'd.id = s.deptid','d')
         ->orderBy('s.deptid ASC,s.id DESC');
 

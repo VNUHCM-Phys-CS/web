@@ -62,6 +62,8 @@ class ClassesController  extends \AdminsLangCore {
         if (!$this->request->isAjax() || !$perL = $this->master::checkPermissionDepted($this->cler, 'index')) {
             $this->helper->responseJson($this, ["error" => "Truy cập không được phép"]);
         }
+        $langId = $this->session->get('langid');
+        $langId = $langId ? $langId : 1;
         $columns = [
             's.id',
             's.slug',
@@ -75,14 +77,13 @@ class ClassesController  extends \AdminsLangCore {
             'sl.content',
             'sl.excerpt',
             'd.slug dslug',
-            '(SELECT dl.title FROM DeptsLang AS dl WHERE dl.deptid = s.deptid AND dl.langid = 1) AS deptname',
+            '(SELECT dl.title FROM DeptsLang AS dl WHERE dl.deptid = s.deptid AND dl.langid = '.$langId.') AS deptname',
         ];
-
         $data = $this->modelsManager->createBuilder()
         ->columns($columns)
         ->from(['s' => "Classes"])
         ->where("s.deleted = 0")
-        ->leftJoin('ClassesLang', 'sl.classid = s.id AND sl.langid = 1','sl')
+        ->leftJoin('ClassesLang', 'sl.classid = s.id AND sl.langid = '.$langId,'sl')
         ->leftJoin('Depts', 'd.id = s.deptid','d')
         ->orderBy('s.deptid ASC,s.id DESC');
 

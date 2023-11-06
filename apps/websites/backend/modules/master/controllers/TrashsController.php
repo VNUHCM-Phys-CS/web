@@ -20,12 +20,13 @@ class TrashsController extends \BackendController
             $this->helper->responseJson($this, ["error" => "Loại dữ liệu không tồn tại"]);
         };
         $perL = $this->checkP($type);
-
+        $langId = $this->session->get('langid');
+        $langId = $langId ? $langId : 1;
         $data = $this->modelsManager->createBuilder()
         ->columns($this->arraTypes[$type][2])
         ->from(['t' =>$this->arraTypes[$type][0]])
         ->where("t.deleted = 1")
-        ->leftJoin($this->arraTypes[$type][0].'Lang', "tl.{$this->arraTypes[$type][1]} = t.id AND tl.langid = 1",'tl')
+        ->leftJoin($this->arraTypes[$type][0].'Lang', "tl.{$this->arraTypes[$type][1]} = t.id AND tl.langid = ".$langId,'tl')
         ->orderBy('t.updatedat DESC');
 
         $data = $this->master::builderPermission($data,$perL,'t');

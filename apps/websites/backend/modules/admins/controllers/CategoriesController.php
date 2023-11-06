@@ -102,12 +102,13 @@ class CategoriesController  extends \BackendController {
             'cl.excerpt',
             'd.slug dslug',
         ];
-
+        $langId = $this->session->get('langid');
+        $langId = $langId ? $langId : 1;
         $data = $this->modelsManager->createBuilder()
         ->columns($columns)
         ->from(['c' => "Categories"])
         ->where("c.deleted = 0")
-        ->leftJoin('CategoriesLang', 'cl.catid = c.id AND cl.langid = 1','cl')
+        ->leftJoin('CategoriesLang', 'cl.catid = c.id AND cl.langid = '.$langId,'cl')
         ->leftJoin('Depts', 'd.id = c.deptid','d')
         ->orderBy('c.deptid ASC');
 

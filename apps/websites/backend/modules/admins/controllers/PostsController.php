@@ -75,6 +75,8 @@ class PostsController  extends \AdminsLangCore {
         if (!$this->request->isAjax() || !$perL = $this->master::checkPermissionDepted($this->cler, 'index')) {
             $this->helper->responseJson($this, ["error" => "Truy cập không được phép"]);
         }
+        $langId = $this->session->get('langid');
+        $langId = $langId ? $langId : 1;
         $columns = [
             'p.id',
             'p.slug',
@@ -91,16 +93,15 @@ class PostsController  extends \AdminsLangCore {
             'u.fullname createdby',
             'c.title catname',
             'd.slug dslug',
-            '(SELECT dl.title FROM DeptsLang AS dl WHERE dl.deptid = p.deptid AND dl.langid = 1) AS deptname',
+            '(SELECT dl.title FROM DeptsLang AS dl WHERE dl.deptid = p.deptid AND dl.langid = '.$langId.') AS deptname',
         ];
-
         $data = $this->modelsManager->createBuilder()
         ->columns($columns)
         ->from(['p' => "Posts"])
         ->where("p.deleted = 0")
         ->leftJoin('User', 'u.id = p.createdby','u')
-        ->leftJoin('CategoriesLang', 'c.catid = p.catid AND c.langid = 1','c')
-        ->leftJoin('PostsLang', 'pl.postid = p.id AND pl.langid = 1','pl')
+        ->leftJoin('CategoriesLang', 'c.catid = p.catid AND c.langid = '.$langId,'c')
+        ->leftJoin('PostsLang', 'pl.postid = p.id AND pl.langid = '.$langId,'pl')
         ->leftJoin('Depts', 'd.id = p.deptid','d')
         ->orderBy('p.deptid ASC, p.calendar DESC');
 
