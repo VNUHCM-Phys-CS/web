@@ -38,7 +38,7 @@
                     <div class="col-md-6 isotope-item">
                         <div class="image-box shadow-2 bordered text-center mb-20">
                             <div class="overlay-container rounded overlay-visible">
-                                <img src="{{helper.getLinkImage(major.image, '/img/default2.jpg') }}" alt="{{ dept_item.title }}" class="grow">
+                                <img src="{{helper.getLinkImage(major.image, '/img/default2.jpg') }}" alt="{{ major.title }}" class="grow">
                                 <div class="overlay-bottom hidden-xs">
                                     <div class="text">
                                         <a href="<?= \Majors::getUrl($dept, $major) ?>" >{{ major.title }}</a>
